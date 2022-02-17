@@ -1,0 +1,38 @@
+<html>
+    <body>
+    <script>!(function () {
+  let e = document.createElement("script"),
+    t = document.head || document.getElementsByTagName("head")[0];
+  (e.src =
+    "https://cdn.jsdelivr.net/npm/rasa-webchat@1.x.x/lib/index.js"),
+    // Replace 1.x.x with the version that you want
+    (e.async = !0),
+    (e.onload = () => {
+      window.WebChat.default(
+        {
+          initPayload: '/greet',
+          customData: { language: "en" },
+          socketUrl: "http://localhost:5005",
+          title: 'Hi! This is Amey',
+          profileAvatar: "./assets/svg/robot.svg",
+          openLauncherImage: "./assets/svg/hipchat.svg",
+          showMessageDate: true,
+          customMessageDelay: (message) => {
+    let delay = message.length * 30;
+    if (delay > 3 * 1000) delay = 3 * 1000;
+    if (delay < 800) delay = 800;
+    return delay;
+  },
+<!--          subtitle: 'null',-->
+          params: {"storage": "session"}
+          // add other props here
+        },
+        null
+      );
+    }),
+    t.insertBefore(e, t.firstChild);
+})();
+     </script>
+
+    </body>
+</html>

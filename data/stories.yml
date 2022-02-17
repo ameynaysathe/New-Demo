@@ -1,0 +1,203 @@
+version: "3.0"
+
+stories:
+
+- story: restart
+  steps:
+  - intent: goodbye
+  - action: action_restart
+
+#- story: happy_story_1
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: Temporary_Staffing_Solutions
+#  - action: action_receive_user_interest
+#  - slot_was_set:
+#      - looking_for: "Temporary Staffing Solutions"
+#  - action: utter_temp_staff_sol
+#  - action: utter_ask_name
+#  - intent: my_name_is
+#  - action: action_receive_name
+#  - slot_was_set:
+#      - name: "amey naysathe"
+#  - action: utter_ask_email_id
+#  - intent: email_id
+#  - action: action_receive_email_id
+#  - slot_was_set:
+#      - email_id: "ameynay@gmail.com"
+#  - action: utter_ask_phone_no
+#  - intent: my_phone_no_is
+#  - action: action_receive_phone_number
+#  - slot_was_set:
+#      - phone_no: "9653092878"
+#  - action: utter_slots_values
+#  - action: utter_submit
+#  - action: action_email
+#  - intent: goodbye
+#  - action: utter_goodbye
+#
+#- story: happy_story_for_PSS
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: Permanent_Staffing_Solutions
+#  - action: action_receive_user_interest
+#  - slot_was_set:
+#      - looking_for: "Permanent Staffing Solutions"
+#  - action: utter_per_sta_solutions
+#  - action: utter_ask_name
+#  - intent: my_name_is
+#  - action: action_receive_name
+#  - slot_was_set:
+#      - name: "virat kohli"
+#  - action: utter_ask_email_id
+#  - intent: email_id
+#  - action: action_receive_email_id
+#  - slot_was_set:
+#      - email_id: "billgates@gmail.com"
+#  - action: utter_ask_phone_no
+#  - intent: my_phone_no_is
+#  - action: action_receive_phone_number
+#  - slot_was_set:
+#      - phone_no: "9224563567"
+#  - action: utter_slots_values
+#  - action: utter_submit
+#  - action: action_email
+#  - intent: goodbye
+#  - action: utter_goodbye
+#
+#- story: happy_story_of_LLADCOM
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: Labour_Law_Advisory_&_Compliance
+#  - action: action_receive_user_interest
+#  - slot_was_set:
+#      - looking_for: "Labour Law Advisory & Compliance"
+#  - action: utter_lab_law_ad_compli
+#  - action: utter_ask_name
+#  - intent: my_name_is
+#  - action: action_receive_name
+#  - slot_was_set:
+#      - name: "astha deshmukh"
+#  - action: utter_ask_email_id
+#  - intent: email_id
+#  - action: action_receive_email_id
+#  - slot_was_set:
+#      - email_id: "deshmukhasta@gmail.com"
+#  - action: utter_ask_phone_no
+#  - intent: my_phone_no_is
+#  - action: action_receive_phone_number
+#  - slot_was_set:
+#      - phone_no: "8795645673"
+#  - action: utter_slots_values
+#  - action: utter_submit
+#  - action: action_email
+#  - intent: goodbye
+#  - action: utter_goodbye
+#
+#- story: happy_story_allied_serv
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: Allied_Services
+#  - action: action_receive_user_interest
+#  - slot_was_set:
+#      - looking_for: "Allied Services"
+#  - action: utter_alli_services
+#  - action: utter_ask_name
+#  - intent: my_name_is
+#  - action: action_receive_name
+#  - slot_was_set:
+#      - name: "Saravna ayyappa"
+#  - action: utter_ask_email_id
+#  - intent: email_id
+#  - action: action_receive_email_id
+#  - slot_was_set:
+#      - email_id: "elonmask@gmail.com"
+#  - action: utter_ask_phone_no
+#  - intent: my_phone_no_is
+#  - action: action_receive_phone_number
+#  - slot_was_set:
+#      - phone_no: "7878578373"
+#  - action: utter_slots_values
+#  - action: utter_submit
+#  - action: action_email
+#  - intent: goodbye
+#  - action: utter_goodbye
+
+- story: first_story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_help
+  - intent: business_enquires
+  - action: utter_offer
+  - intent: offers
+  - action: action_receive_user_interest
+  - slot_was_set:
+      - looking_for: "Temporary Staffing "
+  - action: utter_ask_name
+  - intent: my_name_is
+  - action: action_receive_name
+  - slot_was_set:
+      - name: "Saravna ayyappa"
+  - action: utter_ask_phone_no
+  - intent: my_phone_no_is
+  - action: action_receive_phone_number
+  - slot_was_set:
+      - phone_no: "7878578373"
+  - action: utter_ask_company_name
+  - intent: name_of_companies
+  - action: action_receive_company_name
+  - slot_was_set:
+      - company_name: "XYZ Company"
+  - action: utter_ask_email_id
+  - intent: email_id
+  - action: action_receive_email_id
+  - slot_was_set:
+      - email_id: "elonmask@gmail.com"
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: action_email
+
+- story: second_story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_help
+  - intent: job_enquiry
+  - action: utter_job_enquiry
+  - action: utter_job_enquiry_2
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_help
+  - intent: prompt_existing_employee
+  - action: employee_form
+  - active_loop: employee_form
+  - slot_was_set:
+    - requested_slot: digits_code
+  - slot_was_set:
+    - digits_code: 123456
+  - slot_was_set:
+    - requested_slot: current_company
+  - slot_was_set:
+    - current_company: Adani transmission pvt
+  - slot_was_set:
+    - requested_slot: mobile_number
+  - slot_was_set:
+    - mobile_number: 9898698950
+  - slot_was_set:
+    - requested_slot: email_add
+  - slot_was_set:
+    - email_add: company@amey.com
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submitted
+  - action: utter_slot_values
+  - action: action_email_for_employee

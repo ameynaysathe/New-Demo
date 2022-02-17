@@ -1,0 +1,215 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - bot_challenge
+  - my_name_is
+  - my_phone_no_is
+  - email_id
+  - stop
+#  - Temporary_Staffing
+#  - Permanent_Recruitment
+#  - Labour_Law_Advisory_&_Compliance
+#  - Allied_Services
+  - business_enquires
+  - job_enquiry
+  - prompt_existing_employee
+#  - background_verification_check
+#  - industry_relations_advisory_services
+#  - talent_management
+  - offers
+  - name_of_companies
+
+entities:
+- name
+- phone_no
+- email_id
+- looking_for
+- company
+
+slots:
+  name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: name
+  phone_no:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: phone_no
+  email_id:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: email_id
+  looking_for:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: looking_for
+  company_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: company
+  digits_code:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: employee_form
+           requested_slot: digits_code
+  current_company:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: employee_form
+           requested_slot: current_company
+  mobile_number:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: employee_form
+           requested_slot: mobile_number
+  email_add:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: employee_form
+           requested_slot: email_add
+
+responses:
+  utter_greet:
+    - text: "Hello there! Welcome to Prompt Personnel Pvt Ltd - one of India's leading HR Solutions company with over 24 years of eperience"
+
+  utter_help:
+  - text: "Please select from the below 3 options & help us to know what are you looking for?"
+    buttons:
+    - title: "Business Enquiry"
+      payload: '/business_enquires'
+    - title: "Job enquiry"
+      payload: '/job_enquiry'
+    - title: "Prompt Existing Employee"
+      payload: '/prompt_existing_employee'
+
+  utter_offer:
+  - text: "We offer end to end HR services, what are you looking for today?"
+    buttons:
+    - title: "Temporary Staffing"
+      payload: '/offers'
+    - title: "Permanent Recruitment"
+      payload: '/offers'
+    - title: "Labour Law Advisory & Compliance Management"
+      payload: '/offers'
+    - title: "Background Verification Check"
+      payload: '/offers'
+    - title: "Industry Relations Advisory Services"
+      payload: '/offers'
+    - title: "Talent Management"
+      payload: '/offers'
+
+  utter_job_enquiry:
+    - text: "Sure, I can help you with that!"
+
+  utter_job_enquiry_2:
+    - text: "For hot & latest job openings at Prompt
+    visit [website] (https://www.promptpersonnel.com/find-a-job/) "
+
+  utter_temp_staff_sol:
+  - text: "The constantly evolving economy has highlighted the benefits of flexible staffing solutions for businesses. It's a dependable and foolproof way for our clients to scale
+  down their workforce. Make the most of our prompt team of experts, years of boundless experience in flexible staffing and our PAN India presence."
+
+  utter_per_sta_solutions:
+  - text: "Permanent staffing is one of the services from the deep ocean of end-to-end HR services at Prompt. Our understanding of people and domain expertise are the reason we can filter out just the perfect candidates for any position in any industry.
+   Your permanent staff is the driving force for your business and hiring someone for this role can be a tedious process. Partner with Prompt to hire effectively"
+
+  utter_lab_law_ad_compli:
+  - text: "The intricate and ever-evolving statutory regulations have baffled many businesses. In this challenging business world, we help clients shield themselves from the serious consequences of non-compliance with the labour laws.
+   We have successfully kept jeopardies and possible losses at bay for many business with our expertise and distinguished knowledge in statutory compliance"
+
+  utter_alli_services:
+  - text: "At Prompt Personnel, we believe in legitimacy and transparency. That is precisely why we perform intensive background verification of the candidates for our clients.
+   Wish to know whether the information provided by the candidate is authentic or not? Just ask us."
+
+  utter_goodbye:
+  - text: "Bye Have a nice day {name}"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_name:
+  - text: "May I have your name please"
+
+  utter_ask_company_name:
+    - text: "Please help me with your company name"
+
+  utter_ask_phone_no:
+  - text: "Thanks, Also kindly help me with your contact number."
+
+  utter_ask_email_id:
+  - text: "Could you please help with your company email id."
+
+  utter_submit:
+  - text: "Thank you {name} for the details! We'll surely get in touch with you shortly."
+
+  utter_thanks_for_business_enquiry:
+  - text: "Thank you for your patience! Our sales team will get in touch with you in next 48 hours.
+  You can also contact with us on business@promptpersonnel.com in case of further queries."
+
+  utter_slots_values:
+  - text: "Your information is recorded :\n - Name:  {name}\n - Contact no:  {phone_no}\n - Email Id:  {email_id}\n - Interested In:  {looking_for}\n - Company Name:  {company_name}"
+
+  utter_default:
+  - text: "I didn't quite understand that. Could you rephrase?"
+
+  utter_ask_digits_code:
+  - text: "Please enter your 6 digits prompt employee code"
+
+  utter_ask_current_company:
+  - text: "Please mention the name of the company you are working for"
+
+  utter_ask_mobile_number:
+  - text: "What is your mobile number"
+
+  utter_ask_email_add:
+  - text: "Enter your company email id (No gmail ID should be allowed)"
+
+  utter_submitted:
+  - text: "Thank you for your details"
+
+  utter_slot_values:
+  - text: "Your information is recorded :\n - 6-digits code:  {digits_code}\n - Current company:  {current_company}\n - Phone Number:  {mobile_number}\n - Email ID:  {email_add}"
+
+forms:
+  employee_form:
+    required_slots:
+      - digits_code
+      - current_company
+      - mobile_number
+      - email_add
+
+
+actions:
+ - action_receive_name
+ - action_receive_phone_number
+ - action_receive_email_id
+ - action_receive_user_interest
+ - action_receive_company_name
+ - action_restart
+ - action_email
+ - action_email_for_employee
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
